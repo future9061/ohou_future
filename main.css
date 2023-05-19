@@ -1,16 +1,19 @@
-@font-face {
-  font-family: "TheJamsil5Bold";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2")
-    format("woff2");
-  font-weight: 700;
-  font-style: normal;
+body {
+  font-family: sans-serif;
 }
 
 .container {
-  width: 1256px;
+  max-width: 1256px;
   margin: auto;
 }
 
+.cr {
+  cursor: pointer;
+}
+
+.relative {
+  position: relative;
+}
 /*맨 위에 배너 ( close 클릭하면 사라지는)*/
 .banner1 {
   width: 100%;
@@ -24,6 +27,7 @@
   height: 100%;
 }
 
+/*클릭하면 배너 사라지는 이벤트*/
 .banner1 i {
   color: white;
   font-size: 30px;
@@ -34,73 +38,108 @@
 }
 
 /*맨 위 메뉴*/
-.menu-bar {
-  height: 80px;
-}
-
 .menu-bar-inner {
+  margin: 30px auto;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  border: 1px solid blue;
-  height: 100%;
-}
-
-.logo-wrap {
-  height: 100%;
-  width: 120px;
-}
-
-.logo {
-  height: 30px;
-  background: url(img/logo.png) no-repeat;
-  position: relative;
-  top: calc(50% - 15px);
-}
-
-.top-ul-wrap {
-  margin-right: 50px;
+  white-space: nowrap;
 }
 
 .top-ul-wrap ul {
   display: flex;
-  align-items: center;
 }
 
 .top-ul-wrap ul li {
-  margin: 20px;
-  font-weight: 900;
+  margin-right: 25px;
+  font-size: 18px;
+  font-weight: bold;
 }
-
-.top-ul-wrap ul li:first-child {
+.top-ul-wrap ul li:hover a {
   color: #00bbff;
 }
 
-.search-wrap {
-  display: flex;
+.top-ul-wrap ul li:first-child a {
+  color: #00bbff;
 }
 
-.search-wrap form {
-  border: 1px solid #dadde0;
-  padding: 10px 60px 10px 10px;
+.menu-bar form {
+  position: relative;
+  right: -50px;
+  border: 1px solid silver;
+  display: inline-block;
+  height: 100%;
+  padding: 9px 40px;
   border-radius: 5px;
+  white-space: nowrap;
 }
 
-.search-wrap form > i {
-  color: #dadde0;
-  font-size: 20px;
-  cursor: pointer;
+.menu-bar form:hover {
+  background-color: aliceblue;
+}
+.menu-bar form:hover input {
+  background-color: aliceblue;
 }
 
-.search-wrap input {
+.fa-magnifying-glass {
+  color: silver;
+  position: relative;
+  left: -20px;
+}
+
+.menu-bar form input {
+  width: 100%;
   border: none;
   outline: none;
 }
 
-.search-wrap ul {
+.login_cart {
   display: flex;
   align-items: center;
-  border: 1px solid red;
+  position: relative;
+  right: -40px;
 }
 
-.search-wrap ul li {
+.cart-wrap img {
+  margin-right: 15px;
+}
+
+.cart-wrap2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: none;
+}
+
+.cart_blue {
+  background: url(img/Shopping-Cart-icon.hover.png) no-repeat;
+  width: 25px;
+  position: absolute;
+}
+
+.login {
+  display: flex;
+}
+
+.login li {
+  margin-right: 5px;
+}
+
+.login li a {
+  padding: 1.5px 10px;
+  border-right: 0.5px solid rgb(214, 214, 214);
+}
+
+.login li:last-child a {
+  border: none;
+}
+
+.menu-bar-inner button {
+  padding: 12px 15px;
+  border: none;
+  color: white;
+  background-color: #00bbff;
+  font-size: 15px;
+  border-radius: 5px;
 }

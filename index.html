@@ -19,14 +19,15 @@
     <header>
       <div class="banner1">
         <img src="img/top-banner.png" alt="" />
-        <i class="fa-solid fa-xmark"></i>
+        <i class="fa fa-thin fa-xmark"></i>
       </div>
       <nav class="menu-bar">
         <div class="menu-bar-inner container">
-          <div class="logo-wrap">
-            <div class="logo"></div>
+          <div class="logo-wrap cr">
+            <img class="logo" src="img/logo.PNG" alt="" />
           </div>
 
+          <!--마우스 올리면 서브 메뉴 달라짐-->
           <div class="top-ul-wrap">
             <ul>
               <li><a href="#">커뮤니티</a></li>
@@ -34,19 +35,39 @@
               <li><a href="#">이사/시공/수리</a></li>
             </ul>
           </div>
-          <div class="search-wrap">
-            <form action="">
-              <i class="fa-solid fa-magnifying-glass"></i>
-              <input type="text" placeholder="통합검색" />
-            </form>
-            <span><i class="fa-brands fa-opencart"></i></span>
-            <ul>
+
+          <form class="cr" action="">
+            <i class="fa-solid fa-magnifying-glass cr"></i>
+
+            <input class="cr" type="text" placeholder="통합검색" />
+          </form>
+
+          <div class="login_cart">
+            <div class="cart-wrap">
+              <img
+                class="cr relative"
+                src="img/Shopping-Cart-icon.png"
+                style="width: 25px"
+                alt=""
+              />
+              <div class="cart-wrap2">
+                <img
+                  class="cr"
+                  src="img/Shopping-Cart-icon.hover.png"
+                  style="width: 25px"
+                  alt=""
+                />
+              </div>
+            </div>
+            <ul class="login">
               <li><a href="#">로그인</a></li>
               <li><a href="#">회원가입</a></li>
               <li><a href="#">고객센터</a></li>
             </ul>
-            <button>글쓰기</button>
           </div>
+          <button class="cr">
+            글쓰기 <span><i class="fa fa-light fa-chevron-down"></i></span>
+          </button>
         </div>
       </nav>
     </header>
