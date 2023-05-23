@@ -13,13 +13,14 @@
     />
     <link rel="stylesheet" href="nomalize.css" />
     <link rel="stylesheet" href="main.css" />
+    <script defer src="main.js"></script>
     <title>Document</title>
   </head>
   <body>
     <header>
       <div class="banner1">
         <img src="img/top-banner.png" alt="" />
-        <i class="fa fa-thin fa-xmark"></i>
+        <i class="fa fa-thin fa-xmark close_btn"></i>
       </div>
       <nav class="menu-bar">
         <div class="menu-bar-inner container">
@@ -72,7 +73,7 @@
       </nav>
       <nav class="nav2">
         <div class="nav2_inner container">
-          <ul class="nav2_sub sub1">
+          <ul class="nav2_sub z-index">
             <li><a href="#">홈</a></li>
             <li><a href="#">팔로잉</a></li>
             <li><a href="#">사진</a></li>
@@ -84,8 +85,9 @@
               <a href="#">3D인테리어<button class="cr">BETA</button></a>
             </li>
             <li><a href="#">이벤트</a></li>
+            </ul>
 
-            <ul class="nav2_sub sub2" style="display: none">
+            <ul class="nav2_sub">
               <li><a href="#">쇼핑홈</a></li>
               <li><a href="#">카테고리</a></li>
               <li><a href="#">베스트</a></li>
@@ -98,7 +100,7 @@
               <li><a href="#">기획전</a></li>
             </ul>
 
-            <ul class="nav2_sub sub3" style="display: none">
+            <ul class="nav2_sub">
               <li><a href="#">홈</a></li>
               <li><a href="#">인테리어시공</a></li>
               <li><a href="#">이사</a></li>
@@ -226,30 +228,133 @@
       </div>
 
       <!--main section1 -->
-      <div class="main_section1">
+      <div class="main_section1 mt">
         <div class="main_section1_inner container">
           <h3>볼수록 마음에 드는 우리집 🛕 <span>더보기</span></h3>
-          <div class="section1_box section1_box1">
-            <img src="img/c-1.jpg" alt="" />
-            <p>
-              <span class="color_blue">삼남매와 푸들이 함께 사는</span> 복층 아파트, 알록달록
-              홈스타일링!
-            </p>
-            <div class="section1_box section1_box2">
-              <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168187303190684352.png?" alt="" />
+          <div class="section1_box_wrap">
+            <div class="section1_box">
+              <img src="img/c-1.jpg" alt="" />
+              <i class="fa-solid fa-heart cr"></i>
+
               <p>
-                <span class="color_blue">애정을 담아</span> 엄마의 취향으로 채운 화이트 모던 하우스
+                <span class="color_blue">삼남매와 푸들이 함께 사는</span> 복층
+                아파트, 알록달록 홈스타일링!
               </p>
-              <div class="section1_box section1_box3">
-                <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168411411090044893.jpg?" alt="" />
-                <p>
-                  <span class="color_blue">단순하고 편안하게!</span> 필요한 가구로만 채워넣은 20평대
-                </p>
-                <div class="section1_box section1_box4">
-                  <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/projects/cover_images/167938090887659740.jpg?" alt="" />
-                  <p>
-                    <span class="color_blue">모던 클래식한 재료들의</span>마감이 돋보이는 홈스윗홈
-                  </p>
+            </div>
+            <div class="section1_box">
+              <img
+                src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168187303190684352.png?"
+                alt=""
+              />
+              <i class="fa-solid fa-heart cr"></i>
+              <p>
+                <span class="color_blue">애정을 담아</span> 엄마의 취향으로 채운
+                화이트 모던 하우스
+              </p>
+            </div>
+            <div class="section1_box">
+              <img
+                src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/projects/168411411090044893.jpg?"
+                alt=""
+              />
+              <i class="fa-solid fa-heart cr"></i>
+              <p>
+                <span class="color_blue">단순하고 편안하게!</span> 필요한
+                가구로만 채워넣은 20평대
+              </p>
+            </div>
+            <div class="section1_box">
+              <img
+                src="https://image.ohou.se/i/bucketplace-v2-development/uploads/projects/cover_images/167938090887659740.jpg?"
+                alt=""
+              />
+              <i class="fa-solid fa-heart cr"></i>
+              <p>
+                <span class="color_blue">모던 클래식한 재료들의</span>마감이
+                돋보이는 홈스윗홈
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--main section1-2 -->
+      <div class="main_section1 mt">
+        <div class="main_section1_inner container">
+          <h3>🏅 이주의 인기! Weekly Best 🏅 <span>더보기</span></h3>
+          <div class="section1_box_wrap">
+            <div class="section1_box">
+              <img src="img/d-1.png" alt="" />
+              <p>
+                <span class="color_blue">펜트리에서 하부장까지</span> 우리집에
+                딱 맞는 주방 정리팁 🧐
+              </p>
+            </div>
+            <div class="section1_box">
+              <img src="" alt="" />
+              <i class="fa-solid fa-heart cr"></i>
+              <p>
+                <span class="color_blue">휴지심🧻의 재발견!</span> 창틀 청소를
+                쉽고 깔끔하게
+              </p>
+            </div>
+            <div class="section1_box">
+              <img src="" alt="" />
+              <i class="fa-solid fa-heart cr"></i>
+              <p>
+                <span class="color_blue">물에 넣어두면</span> 알아서 쑥 자라요
+                (뿌듯)
+              </p>
+            </div>
+            <div class="section1_box">
+              <img src="" alt="" />
+              <i class="fa-solid fa-heart cr"></i>
+              <p>
+                <span class="color_blue">절대 버리지 마세요!</span>구멍난
+                고무장갑 수선 꿀팁
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--main section1-3 -->
+      <div class="main_section1 mt">
+        <div class="main_section1_inner container">
+          <h3>집에 들인 작은 식물원🌱 홈 가드닝 <span>더보기</span></h3>
+          <div class="section1_box_wrap">
+            <div class="section1_box">
+              <img src="img/d-1.png" alt="" />
+              <i class="fa-solid fa-heart cr"></i>
+              <p>
+                <span class="color_blue">화병이 아니라 간장종지?💛</span> 꽃
+                이렇게 연출해보세요
+              </p>
+            </div>
+            <div class="section1_box">
+              <img src="" alt="" />
+              <i class="fa-solid fa-heart cr"></i>
+              <p>
+                <span class="color_blue">초보자도 쉽게 끝내요!🎍</span>홈가드닝
+                팁과 식물 추천
+              </p>
+            </div>
+            <div class="section1_box">
+              <img src="" alt="" />
+              <i class="fa-solid fa-heart cr"></i>
+              <p>
+                <span class="color_blue">로망자극 미니 베란다정원</span
+                >꾸미기부터 식물 추천까지!
+              </p>
+            </div>
+            <div class="section1_box">
+              <img src="" alt="" />
+              <i class="fa-solid fa-heart cr"></i>
+              <p>
+                <span class="color_blue">자연 속 목조주택</span>어떻게
+                플랜테이러 했을까?
+              </p>
+            </div>
           </div>
         </div>
       </div>
