@@ -109,7 +109,7 @@
          
         </div>
 
-          <div class="show_list_wrap">
+          <div class="show_list_wrap"><!--인기순위 부분-->
             <div class="show_list_inner">
               <ul>
                 <li><span>1</span>카펫타일</li>
@@ -123,13 +123,13 @@
                 <li><span>9</span>울랄라파자마</li>
                 <li><span>10</span>대형러그</li>
               </ul>
-              <div class="down_arrow"><i class="fa-solid fa-chevron-down"></i></div>
+              <div class="down_arrow cr"><i class="fa-solid fa-chevron-down"></i></div>
 
             </div>
           </div>
 
-          <div class="lank_wrap">
-            <h4>인기 검색어<i class="fa fa-chevron-up"></i></h4>
+          <div class="lank_wrap"> <!--마우스 올리면 나타나는-->
+            <h4>인기 검색어<i class="fa fa-chevron-up up_arrow cr"></i></h4>
             <ul>
               <li><span>1</span>카펫타일</li>
               <li><span>2</span>지누스 매트리스</li>
@@ -152,14 +152,7 @@
     <main>
       <div class="main_banner_wrap">
         <div class="arrow_relative container">
-          <!--슬라이드 화살표-->
-          <div class="arrow arrow_right cr">
-            <i class="fa-solid fa-chevron-right"></i>
-          </div>
-          <div class="arrow arrow_left cr">
-            <i class="fa-solid fa-chevron-left"></i>
-          </div>
-
+         
           <div class="main_banner_inner container">
             <div class="main_banner1">
               <img src="img/main_banner.webp" alt="" />
@@ -179,8 +172,18 @@
                 <li><img src="img/a-6.webp" /></li>
                 <li><img src="img/a-7.webp" /></li>
               </ul>
-              <div class="slider_count">1/12 +</div>
+              <div class="slider_count"><span class="slide_num">1<span>/7 +</div>
             </div>
+          </div>
+
+           <!--슬라이드 화살표-->
+           <div class="opacity arrow_wrap">
+            <div class="arrow arrow_right cr">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+            <div class="arrow arrow_left cr">
+             <i class="fa-solid fa-chevron-left"></i>
+             </div>
           </div>
         </div>
       </div>
@@ -254,6 +257,7 @@
               >
             </li>
           </ul>
+          
         </div>
       </div>
 
@@ -426,21 +430,91 @@
 
    <!--main section2 가격순 정렬, 오름, 내림 정렬, 타이머-->
    <div class="today_deal_wrap">
-    <div class="today_deal_inner">
-      <div class="today_deal_item">
-        <img src="" alt="">
-        <small></small>
-        <p></p>
-        <b><span></span></b>
-        <div class="deal_btn_wrap">
+
+    <div class="deal_btn_wrap1 container mt">
+      <select class="deal_select">
+        <option value="">높은 가격순</option>
+        <option value="">낮은 가격순</option>
+      </select>
+      <select class="deal_select">
+        <option value="">오름차순</option>
+        <option value="">내림차순</option>
+      </select>
+      <button>상품 더 보기</button>
+    </div>
+
+
+    <div class="today_deal_inner container mt">
+      
+      <h3>집에 들인 작은 식물원🌱 홈 가드닝 <span>더보기</span></h3>
+
+      <div class="today_deal_item_wrap">
+      <div class="today_deal_item cr">
+        <div class="img_wrap">
+          <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/deals/167599418354505272.jpeg?gif=1&w=360&h=360&c=c&q=0.8&webp=1" alt="">
+          <div>00:00:00 남음</div>
+        </div>
+        <small>지라프</small>
+        <p>오늘의집 판매 1위 구아바다/아이보리 아이보리 에디션 M/L 2종</p>
+        <b><span>7%</span>129,000 외</b>
+        <div class="deal_btn_wrap2">
           <button>무료배송</button>
           <button>특가</button>
         </div>
       </div>
-    </div>
-   </div>
-   <div style="height:3000px"></div>
 
+      <div class="today_deal_item">
+        <div class="img_wrap">
+          <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/deals/167599418354505272.jpeg?gif=1&w=360&h=360&c=c&q=0.8&webp=1" alt="">
+          <div>00:00:00 남음</div>
+        </div>
+        <small>지라프</small>
+        <p>오늘의집 판매 1위 구아바다/아이보리 아이보리 에디션 M/L 2종</p>
+        <b><span>7%</span>129,000 외</b>
+        <div class="deal_btn_wrap2">
+          <button>무료배송</button>
+          <button>특가</button>
+        </div>
+      </div>
+
+      <div class="today_deal_item">
+        <div class="img_wrap">
+          <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/deals/167599418354505272.jpeg?gif=1&w=360&h=360&c=c&q=0.8&webp=1" alt="">
+          <div>00:00:00 남음</div>
+        </div>
+        <small>지라프</small>
+        <p>오늘의집 판매 1위 구아바다/아이보리 아이보리 에디션 M/L 2종</p>
+        <b><span>7%</span>129,000 외</b>
+        <div class="deal_btn_wrap2">
+          <button>무료배송</button>
+          <button>특가</button>
+        </div>
+      </div>
+
+      <div class="today_deal_item">
+        <div class="img_wrap">
+          <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/deals/167599418354505272.jpeg?gif=1&w=360&h=360&c=c&q=0.8&webp=1" alt="">
+          <div>00:00:00 남음</div>
+        </div>
+        <small>지라프</small>
+        <p>오늘의집 판매 1위 구아바다/아이보리 아이보리 에디션 M/L 2종</p>
+        <b><span>7%</span>129,000 외</b>
+        <div class="deal_btn_wrap2">
+          <button>무료배송</button>
+          <button>특가</button>
+        </div>
+     
+      </div>
+
+
+
+    </div>
+
+  </div>
+   
+  </div>
+
+   <div style="height: 3000px;"></div>
 
     </main>
 

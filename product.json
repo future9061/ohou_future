@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "img": "https://image.ohou.se/i/bucketplace-v2-development/uploads/deals/167599418354505272.jpeg?gif=1&w=480&h=480&c=c",
+    "brand": "미닉스",
+    "paragraph": "[오늘의딜][인기상품] 미닉스 미니건조기 / 식세기 / 빔프로젝터 모음전",
+    "price": "319,000원"
+  },
+
+  {
+    "id": 2,
+    "img": "https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167713543641723903.jpg?gif=1&w=480&h=480&c=c&webp=1",
+    "brand": "에스테반호프",
+    "paragraph": "[단하루특가][1+1]우드상판포함 폴딩박스 28L/54L 크림/블랙",
+    "price": "18,900원"
+  },
+
+  {
+    "id": 3,
+    "img": "https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168249255960016870.jpg?gif=1&w=480&h=480&c=c&webp=1",
+    "brand": "디얼리빙",
+    "paragraph": "[선착순8,900원][오늘의딜] 돌돌이 테이프클리너 10종세트(본체+거치대+긴봉+리필7개)",
+    "price": "11,900원"
+  },
+
+  {
+    "id": 4,
+    "img": "https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/1511415909987_7Buzxp1rr.jpg?gif=1&w=480&h=480&c=c&webp=1",
+    "brand": "굿픽스",
+    "paragraph": "[주말특가] 다용도 자석 수납함 우산꽂이 3colors",
+    "price": "11,800원"
+  },
+
+  {
+    "id": 5,
+    "img": "https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168491220847683418.jpg?gif=1&w=480&h=480&c=c",
+    "brand": "스타일링홈",
+    "paragraph": "[단하루!추가인하+쿠폰] 간절기/여름 사각사각 시원한 호텔느낌 60수 먼지없는 차렵이불세트",
+    "price": "59,900원"
+  },
+
+  {
+    "id": 6,
+    "img": "https://image.ohou.se/i/bucketplace-v2-development/uploads/deals/168490484615162577.png?gif=1&w=480&h=480&c=c&webp=1",
+    "brand": "피에고",
+    "paragraph": "[원터치 유모차 17만원대] 휴대용 유모차/메쉬 아기띠/유모차 라이너/용품 外 특가전",
+    "price": "55,000원"
+  },
+
+  {
+    "id": 7,
+    "img": "https://image.ohou.se/i/bucketplace-v2-development/uploads/deals/168490484615162577.png?gif=1&w=480&h=480&c=c&webp=1",
+    "brand": "피에고",
+    "paragraph": "[원터치 유모차 17만원대] 휴대용 유모차/메쉬 아기띠/유모차 라이너/용품 外 특가전",
+    "price": "55,000원"
+  }
+]

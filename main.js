@@ -35,54 +35,119 @@ mainNav.forEach((elem, index) => {
   });
 });
 
-//1초마다 margin-top 30px씩 ul이 움직이게,,
-let showList = document.querySelectorAll(".show_list_inner");
+//1.5초마다 li의 높이만큼 ul 의 margin-top 값이 움직임
 
-window.addEventListener("load", () => {
-  showList.forEach((showList) => {
-    setInterval(function () {
-      let currentMarginTop = parseInt(
-        showList.querySelector("ul").style.marginTop || 0
-      );
-      showList.querySelector("ul").style.marginTop = "-30px";
-    }, 1000);
-  });
+let showList = document.querySelector(".show_list_inner ul"),
+  listItemHeight = showList.firstElementChild.offsetHeight,
+  marginTop = 0;
+
+function moveList() {
+  marginTop -= listItemHeight;
+  showList.style.marginTop = `${marginTop}px`;
+
+  if (marginTop <= -listItemHeight) {
+    showList.appendChild(showList.firstElementChild.cloneNode(true));
+    showList.removeChild(showList.firstElementChild);
+    marginTop += listItemHeight;
+    showList.style.marginTop = `${marginTop}px`;
+  }
+
+  setTimeout(moveList, 1500);
+}
+
+window.addEventListener("DOMContentLoaded", function () {
+  moveList();
 });
 
+//인기순위에 마우스 올리면 lank_wrap 나타나게
+let showListWrap = document.querySelector(".show_list_wrap"),
+  lankWrap = document.querySelector(".lank_wrap");
+
+showListWrap.addEventListener("mouseover", function () {
+  lankWrap.style.display = "block";
+});
+lankWrap.addEventListener("mouseover", function () {
+  lankWrap.style.display = "block";
+});
+
+let upArrow = document.querySelector(".up_arrow");
+upArrow.addEventListener("mouseover", function (e) {
+  e.stopPropagation();
+  lankWrap.style.display = "none";
+});
+
+showListWrap.addEventListener("mouseout", function (e) {
+  e.stopPropagation();
+  lankWrap.style.display = "none";
+});
+lankWrap.addEventListener("mouseout", function (e) {
+  e.stopPropagation();
+  lankWrap.style.display = "none";
+});
 //이미지 슬라이드**************************************************
 
-//무한 슬라이드를 위해 start, end 슬라이드 복사하기
-const slideImg = document.querySelectorAll(".main_banner2_wrap img");
+//버튼 나타나기
+let banner2Wrap = document.querySelector(".main_banner2_wrap"),
+  arrowWrap = document.querySelector(".arrow_wrap");
+banner2Wrap.addEventListener("mouseover", function () {
+  arrowWrap.classList.remove("opacity");
+});
+arrowWrap.addEventListener("mouseover", function () {
+  arrowWrap.classList.remove("opacity");
+});
+banner2Wrap.addEventListener("mouseout", function () {
+  arrowWrap.classList.add("opacity");
+});
 
-const firstImg = slideImg[0];
-const lastImg = slideImg[slideImg.length - 1];
+//오른쪽 버튼을 누르면 li의 너비만큼 margin-left 이동하되,
+//margin-left 값이 li의 너비 *  li.length 의 값 보다 같거나 작아지면 버튼 사라져라
 
-//생성
-const copyFirst = document.createElement(firstImg.tagName);
-const copyLast = document.createElement(lastImg.tagName);
+//클릭할때마다 1씩 증가되고 length값 이상이 되면 멈춰!
 
-//생성한 태그에 클라스 이름 복사
-// firstImg.classList.forEach((c) => {
-//   copyFirst.classList.add(c);
-// });
-// copyLast.classList.forEach((c) => {
-//   copyLast.classList.add(c);
-// });근데 나는 클라스 이름이 애초에 없기 때문에 상관없어서 주석처리
+const rightBtn = document.querySelector(".arrow_right"),
+  slideUl = document.querySelector(".main_banner2_wrap ul"),
+  slideLi = document.querySelectorAll(".main_banner2_wrap ul li"),
+  itemWidth = slideLi[0].offsetWidth;
+let marginValue = 0;
 
-//생성한 태그에 내용복사
-copyFirst.innerHTML = firstImg.innerHTML;
-copyLast.innerHTML = lastImg.innerHTML;
+const slideNum = document.querySelector(".slide_num");
+let slideLiLength = 1;
 
-//복사한 엘리먼트를 위치시키기
-firstImg.before(copyLast);
-lastImg.after(copyFirst);
-console.log(copyLast);
-// let arr = [];
-// arr = slideImg;
-// console.log(arr);
+function moveSlide() {
+  marginValue -= itemWidth;
+  slideUl.style.marginLeft = `${marginValue}px`;
 
-// 이제 img들을 요소의  width 만큼씩 이동하기 setAttribute 이용
-// slideImg
+  if (marginValue <= -(itemWidth * (slideLi.length - 1))) {
+    rightBtn.classList.add("opacity");
+  }
+
+  slideLiLength++;
+  console.log(slideLiLength);
+  slideNum.innerHTML = `${slideLiLength}/7  +`;
+}
+
+rightBtn.addEventListener("click", moveSlide);
+
+//왼쪽도 li의 너비만큼 margin-right 이동하면서
+
+const leftBtn = document.querySelector(".arrow_left");
+
+// //slideUl = document.querySelector(".main_banner2_wrap ul"),
+// slideLi = document.querySelectorAll(".main_banner2_wrap ul li"),
+// itemWidth = slideLi[0].offsetWidth;
+// let marginValue = 0;
+let marginValue2 = 0;
+// let slideLiLength2 = 1;
+
+function moveSlide2() {
+  marginValue2 += itemWidth;
+  slideUl.style.marginLeft = `${marginValue2}px`;
+
+  // slideLiLength2--;
+  // slideNum.innerHTML = `${slideLiLength2}/7  +`;
+}
+
+leftBtn.addEventListener("click", moveSlide2);
 
 //하트 클릭하면 색깔 변하게, ************로컬 스토리지에  p문구 들어가게(배열로)
 const userHart = document.querySelectorAll(".fa-heart");
@@ -90,9 +155,9 @@ const userHart = document.querySelectorAll(".fa-heart");
 userHart.forEach((a) => {
   let count = 0;
 
-  a.addEventListener("click", function () {
+  a.addEventListener("click", function (e) {
     count++;
-    if (this == a) {
+    if (e.target == a) {
       this.style.color = "#00bbff";
     }
     if (count % 2 == 0) {
