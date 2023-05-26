@@ -132,19 +132,12 @@ rightBtn.addEventListener("click", moveSlide);
 
 const leftBtn = document.querySelector(".arrow_left");
 
-// //slideUl = document.querySelector(".main_banner2_wrap ul"),
-// slideLi = document.querySelectorAll(".main_banner2_wrap ul li"),
-// itemWidth = slideLi[0].offsetWidth;
-// let marginValue = 0;
-let marginValue2 = 0;
-// let slideLiLength2 = 1;
+let marginValue2 = marginValue;
 
 function moveSlide2() {
   marginValue2 += itemWidth;
   slideUl.style.marginLeft = `${marginValue2}px`;
-
-  // slideLiLength2--;
-  // slideNum.innerHTML = `${slideLiLength2}/7  +`;
+  console.log(marginValue2);
 }
 
 leftBtn.addEventListener("click", moveSlide2);
@@ -165,3 +158,79 @@ userHart.forEach((a) => {
     }
   });
 });
+
+//카테고리 버튼 ate이벤트
+
+window.addEventListener("DOMContentLoaded", () => {
+  const cateArrowRt = document.querySelector(".cate_arrow_right"),
+    cateArrowLt = document.querySelector(".cate_arrow_left"),
+    cateUl = document.querySelector(".category_inner ul"),
+    trnasferBox = document.querySelector(".gradient_box");
+  let itemWid = cateUl.firstElementChild.offsetWidth;
+
+  cateArrowRt.addEventListener("click", () => {
+    cateUl.style.marginLeft = `-${itemWid * 4.5}px`;
+    cateArrowRt.classList.add("opacity");
+    trnasferBox.classList.add("opacity");
+    cateArrowLt.classList.remove("opacity");
+  });
+
+  cateArrowLt.addEventListener("click", function () {
+    cateUl.style.marginLeft = `0px`;
+    cateArrowLt.classList.add("opacity");
+    cateArrowRt.classList.remove("opacity");
+  });
+});
+
+//json
+let btnCount = 0;
+fetch("./product.json")
+  .then((res) => res.json())
+  .then((data) => {
+    const moreBtn = document.querySelector(".deal_btn:last-child");
+    const dealInner = document.querySelector(".today_deal_inner");
+
+    function createDealItem(item) {
+      return `
+        <div class="today_deal_item cr">
+          <div class="img_wrap relative">
+            <img src="${item.img}" alt="">
+            <div class="today_timer">00:00:00 남음</div>
+          </div>
+          <small>${item.brand}</small>
+          <p>${item.paragraph}</p>
+          <b><span>7%</span>${item.price}</b>
+          <div class="deal_btn_wrap2">
+            <button class="cr">무료배송</button>
+            <button class="cr">특가</button>
+          </div>
+        </div>
+      `;
+    }
+
+    function dataCom() {
+      dealInner.innerHTML = "";
+      for (let i = 0; i < 4; i++) {
+        dealInner.insertAdjacentHTML("beforeend", createDealItem(data[i]));
+      }
+    }
+
+    dataCom();
+
+    moreBtn.addEventListener("click", function () {
+      btnCount++;
+
+      if (btnCount % 2 !== 0) {
+        dealInner.innerHTML = "";
+        data.forEach((item) => {
+          dealInner.insertAdjacentHTML("beforeend", createDealItem(item));
+        });
+      } else {
+        dataCom();
+      }
+    });
+
+    //json으로 가져온 자료로 오름차순 내림차순 으로 정렬 sort 조건대로 정렬하는 문법
+    //1.가져온 data 의 복사본을 만듦 2.
+  })
+  .catch((error) => console.log("실패함:", error));

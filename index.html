@@ -396,12 +396,7 @@
 
       <div class="category_wrap">
          <div class="relative container">
-          <div class="arrow cate_arrow_right cr">
-            <i class="fa-solid fa-chevron-right"></i>
-          </div>
-          <div class="arrow cate_arrow_left cr">
-            <i class="fa-solid fa-chevron-left"></i>
-          </div>
+         
         <div class="category_inner">
           <h3>카페고리별 상품 찾기</h3>
           <ul>
@@ -425,6 +420,12 @@
             <div class="gradient_box"></div>
           </div>   
           </ul>
+          <div class="arrow cate_arrow_right cr ">
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+          <div class="arrow cate_arrow_left cr opacity">
+            <i class="fa-solid fa-chevron-left"></i>
+          </div>
         </div>
       </div>
 
@@ -432,80 +433,23 @@
    <div class="today_deal_wrap">
 
     <div class="deal_btn_wrap1 container mt">
-      <select class="deal_select">
+      <select class="deal_select deal_btn cr">
         <option value="">높은 가격순</option>
         <option value="">낮은 가격순</option>
       </select>
-      <select class="deal_select">
+      <select class="deal_select deal_btn cr">
         <option value="">오름차순</option>
         <option value="">내림차순</option>
       </select>
-      <button>상품 더 보기</button>
+      <button class="deal_btn cr">상품 더 보기</button>
     </div>
 
-
-    <div class="today_deal_inner container mt">
+    <h3 class="container mt">오늘의 딜💫</h3>
+    <div class="today_deal_inner container" >
       
-      <h3>집에 들인 작은 식물원🌱 홈 가드닝 <span>더보기</span></h3>
 
-      <div class="today_deal_item_wrap">
-      <div class="today_deal_item cr">
-        <div class="img_wrap">
-          <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/deals/167599418354505272.jpeg?gif=1&w=360&h=360&c=c&q=0.8&webp=1" alt="">
-          <div>00:00:00 남음</div>
-        </div>
-        <small>지라프</small>
-        <p>오늘의집 판매 1위 구아바다/아이보리 아이보리 에디션 M/L 2종</p>
-        <b><span>7%</span>129,000 외</b>
-        <div class="deal_btn_wrap2">
-          <button>무료배송</button>
-          <button>특가</button>
-        </div>
-      </div>
 
-      <div class="today_deal_item">
-        <div class="img_wrap">
-          <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/deals/167599418354505272.jpeg?gif=1&w=360&h=360&c=c&q=0.8&webp=1" alt="">
-          <div>00:00:00 남음</div>
-        </div>
-        <small>지라프</small>
-        <p>오늘의집 판매 1위 구아바다/아이보리 아이보리 에디션 M/L 2종</p>
-        <b><span>7%</span>129,000 외</b>
-        <div class="deal_btn_wrap2">
-          <button>무료배송</button>
-          <button>특가</button>
-        </div>
-      </div>
-
-      <div class="today_deal_item">
-        <div class="img_wrap">
-          <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/deals/167599418354505272.jpeg?gif=1&w=360&h=360&c=c&q=0.8&webp=1" alt="">
-          <div>00:00:00 남음</div>
-        </div>
-        <small>지라프</small>
-        <p>오늘의집 판매 1위 구아바다/아이보리 아이보리 에디션 M/L 2종</p>
-        <b><span>7%</span>129,000 외</b>
-        <div class="deal_btn_wrap2">
-          <button>무료배송</button>
-          <button>특가</button>
-        </div>
-      </div>
-
-      <div class="today_deal_item">
-        <div class="img_wrap">
-          <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/deals/167599418354505272.jpeg?gif=1&w=360&h=360&c=c&q=0.8&webp=1" alt="">
-          <div>00:00:00 남음</div>
-        </div>
-        <small>지라프</small>
-        <p>오늘의집 판매 1위 구아바다/아이보리 아이보리 에디션 M/L 2종</p>
-        <b><span>7%</span>129,000 외</b>
-        <div class="deal_btn_wrap2">
-          <button>무료배송</button>
-          <button>특가</button>
-        </div>
-     
-      </div>
-
+     <!--Json으로 넣었습니다~-->
 
 
     </div>
@@ -514,7 +458,7 @@
    
   </div>
 
-   <div style="height: 3000px;"></div>
+   <div style="height: 50px;"></div>
 
     </main>
 
@@ -530,7 +474,7 @@
               주말,공휴일:오늘의집 직접배송, 이사/시공/수리 문의 상담 가능
             </li>
           </ul>
-          <!--클래스 만들어서 쓰셈-->
+          클래스 만들어서 쓰셈-->
     <!--
           <p class="foot1-btn">카톡 상담(평일 09:00~18:00)</p>
           <p class="foot1-btn">이메일 문의</p>
@@ -650,6 +594,7 @@
         //설정 해상도보다 낮을 때 축소
         resizeApply();
       });
+    
     </script>
   </body>
 </html>
