@@ -157,7 +157,6 @@ leftBtn.addEventListener("click", moveSlide2);
 //page가 load되면 무한으로 돌아가는 slide
 function autoSlide() {
   // marginValue
-  console.log(marginValue);
 }
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -292,3 +291,17 @@ fetch("./product.json")
     });
   })
   .catch((error) => console.log("실패함:", error));
+
+//top버튼
+
+const topBtn = document.querySelector(".top-btn"),
+  documentEle = document.documentElement,
+  documentHeight = documentEle.offsetHeight;
+let scrollPos = 0;
+console.log(topBtn, documentEle, documentHeight);
+
+function scrollUp() {}
+
+topBtn.addEventListener("click", () => {
+  scrollUp();
+});
