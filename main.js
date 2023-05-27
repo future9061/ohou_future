@@ -35,7 +35,7 @@ mainNav.forEach((elem, index) => {
   });
 });
 
-//1.5초마다 li의 높이만큼 ul 의 margin-top 값이 움직임
+//인기순위 자동 1.5초마다 li의 높이만큼 ul 의 margin-top 값이 움직임
 
 let showList = document.querySelector(".show_list_inner ul"),
   listItemHeight = showList.firstElementChild.offsetHeight,
@@ -100,7 +100,9 @@ banner2Wrap.addEventListener("mouseout", function () {
 });
 
 //오른쪽 버튼을 누르면 li의 너비만큼 margin-left 이동하되,
-//margin-left 값이 li의 너비 *  li.length 의 값 보다 같거나 작아지면 버튼 사라져라
+//margin-left 값이 li의 너비 *  li.length 의 값 보다 같거나 작아지면 버튼 사라져라->length값이 감소돼서 맘대로 안되넹?
+//그렇다면 바뀌지 않는 length값이 필요해 확장성을 고려해서~~~~
+//기존의 length값을 저장 하는 변수 만들어
 
 //클릭할때마다 1씩 증가되고 length값 이상이 되면 멈춰!
 
@@ -112,43 +114,65 @@ let marginValue = 0;
 
 const slideNum = document.querySelector(".slide_num");
 let slideLiLength = 1;
+const copyLiLength = slideLi.length;
+
+function btnEvent() {
+  if (marginValue <= -(itemWidth * (copyLiLength - 1))) {
+    rightBtn.classList.add("opacity");
+  } else {
+    rightBtn.classList.remove("opacity");
+  }
+}
 
 function moveSlide() {
   marginValue -= itemWidth;
   slideUl.style.marginLeft = `${marginValue}px`;
 
-  if (marginValue <= -(itemWidth * (slideLi.length - 1))) {
-    rightBtn.classList.add("opacity");
-  }
-
   slideLiLength++;
-  console.log(slideLiLength);
+
   slideNum.innerHTML = `${slideLiLength}/7  +`;
+  btnEvent();
 }
 
 rightBtn.addEventListener("click", moveSlide);
 
-//왼쪽도 li의 너비만큼 margin-right 이동하면서
-
 const leftBtn = document.querySelector(".arrow_left");
 
-let marginValue2 = marginValue;
-
 function moveSlide2() {
-  marginValue2 += itemWidth;
-  slideUl.style.marginLeft = `${marginValue2}px`;
-  console.log(marginValue2);
+  if (marginValue >= 0) {
+    return;
+  }
+
+  marginValue += itemWidth;
+  slideUl.style.marginLeft = `${marginValue}px`;
+
+  slideLiLength--;
+  slideNum.innerHTML = `${slideLiLength}/7  +`;
+
+  btnEvent();
 }
 
 leftBtn.addEventListener("click", moveSlide2);
 
+//page가 load되면 무한으로 돌아가는 slide
+function autoSlide() {
+  // marginValue
+  console.log(marginValue);
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  autoSlide();
+});
+
 //하트 클릭하면 색깔 변하게, ************로컬 스토리지에  p문구 들어가게(배열로)
 const userHart = document.querySelectorAll(".fa-heart");
+// let postName = document.querySelectorAll(".");
 
 userHart.forEach((a) => {
   let count = 0;
 
   a.addEventListener("click", function (e) {
+    //색깔 바뀌는 이벤트 끝
     count++;
     if (e.target == a) {
       this.style.color = "#00bbff";
@@ -156,10 +180,13 @@ userHart.forEach((a) => {
     if (count % 2 == 0) {
       this.style.color = "#fff";
     }
+
+    //로컬 스토리지에 게시물 이름 저장
+    // localStorage.setItem
   });
 });
 
-//카테고리 버튼 ate이벤트
+//카테고리 버튼 이벤트
 
 window.addEventListener("DOMContentLoaded", () => {
   const cateArrowRt = document.querySelector(".cate_arrow_right"),
@@ -179,6 +206,7 @@ window.addEventListener("DOMContentLoaded", () => {
     cateUl.style.marginLeft = `0px`;
     cateArrowLt.classList.add("opacity");
     cateArrowRt.classList.remove("opacity");
+    trnasferBox.classList.remove("opacity");
   });
 });
 
@@ -231,6 +259,36 @@ fetch("./product.json")
     });
 
     //json으로 가져온 자료로 오름차순 내림차순 으로 정렬 sort 조건대로 정렬하는 문법
-    //1.가져온 data 의 복사본을 만듦 2.
+    //1.가져온 data 의 복사본을 만듦 2.price keyword로 가격 정렬함
+    // const stringSlec = document.querySelector(".string_selec");
+    // let copyDate = data;
+    // stringSlec.addEventListener("change", () => {
+    //   if (stringSlec.value == "오름차순") {
+    //     console.log(
+    //       copyDate.sort((a, b) => {
+    //         return parseInt(a.price) - parseInt(b.price);
+    //       })
+    //     );
+    //   }
+    // });
+
+    const priceSelec = document.querySelector(".price_selec");
+    let copyData = [...data];
+
+    priceSelec.addEventListener("change", () => {
+      if (priceSelec.value == "높은 가격순") {
+        console.log(
+          copyData.sort((a, b) => {
+            return parseInt(a.price) - parseInt(b.price);
+          })
+        );
+      } else if (priceSelec.value == "낮은 가격순") {
+        console.log(
+          copyData.sort((a, b) => {
+            return parseInt(b.price) - parseInt(a.price);
+          })
+        );
+      }
+    });
   })
   .catch((error) => console.log("실패함:", error));

@@ -13,6 +13,8 @@
     />
     <link rel="stylesheet" href="nomalize.css" />
     <link rel="stylesheet" href="main.css" />
+    <link rel="icon" type="image/png" href="img/favicon.oh.png">
+
     <script defer src="main.js"></script>
     <title>Document</title>
   </head>
@@ -433,13 +435,15 @@
    <div class="today_deal_wrap">
 
     <div class="deal_btn_wrap1 container mt">
-      <select class="deal_select deal_btn cr">
-        <option value="">높은 가격순</option>
-        <option value="">낮은 가격순</option>
+      <select class="price_selec deal_btn cr">
+        <option value="none1">가격순 정렬</option>
+        <option value="높은 가격순" class="price_high">높은 가격순</option>
+        <option value="낮은 가격순" class="price_low">낮은 가격순</option>
       </select>
-      <select class="deal_select deal_btn cr">
-        <option value="">오름차순</option>
-        <option value="">내림차순</option>
+      <select class="string_selec deal_btn cr">
+        <option value="none2">글자순 정렬</option>
+        <option value="오름차순">오름차순</option>
+        <option value="내림차순">내림차순</option>
       </select>
       <button class="deal_btn cr">상품 더 보기</button>
     </div>
