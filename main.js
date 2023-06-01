@@ -1,4 +1,4 @@
-//top sale banner
+//1. 최상단에 banner close 버튼 누르면 사라진다.
 
 const closeBtn = document.querySelector(".close_btn"),
   bannerTop = document.querySelector(".banner1");
@@ -7,7 +7,7 @@ closeBtn.addEventListener("click", function () {
   bannerTop.style.display = "none";
 });
 
-//마우스 스크롤 내리면 main nav 고정
+//2.마우스 스크롤 내리면 main nav가 상단에 고정 된다.
 let manuBar = document.querySelector(".menu-bar");
 
 window.addEventListener("scroll", function () {
@@ -19,8 +19,7 @@ window.addEventListener("scroll", function () {
   }
 });
 
-//메인 메뉴에 마우스 올리면 sub 메뉴 바뀜
-
+//3.메인 메뉴에 마우스 올리면 sub 메뉴 바뀐다.
 const mainNav = document.querySelectorAll(".top-ul-wrap ul li"),
   subNav = document.querySelectorAll(".nav2_sub");
 
@@ -35,8 +34,7 @@ mainNav.forEach((elem, index) => {
   });
 });
 
-//인기순위 자동 1.5초마다 li의 높이만큼 ul 의 margin-top 값이 움직임
-
+//4.인기순위 자동 1.5초마다 li의 높이만큼 ul 의 margin-top 값이 움직임
 let showList = document.querySelector(".show_list_inner ul"),
   listItemHeight = showList.firstElementChild.offsetHeight,
   marginTop = 0;
@@ -59,7 +57,7 @@ window.addEventListener("DOMContentLoaded", function () {
   moveList();
 });
 
-//인기순위에 마우스 올리면 lank_wrap 나타나게
+//5.인기순위에 마우스 올리면 lank_wrap 나타나게
 let showListWrap = document.querySelector(".show_list_wrap"),
   lankWrap = document.querySelector(".lank_wrap");
 
@@ -84,9 +82,9 @@ lankWrap.addEventListener("mouseout", function (e) {
   e.stopPropagation();
   lankWrap.style.display = "none";
 });
-//이미지 슬라이드**************************************************
 
-//버튼 나타나기
+//6.이미지 슬라이드
+
 let banner2Wrap = document.querySelector(".main_banner2_wrap"),
   arrowWrap = document.querySelector(".arrow_wrap");
 banner2Wrap.addEventListener("mouseover", function () {
@@ -99,20 +97,12 @@ banner2Wrap.addEventListener("mouseout", function () {
   arrowWrap.classList.add("opacity");
 });
 
-//오른쪽 버튼을 누르면 li의 너비만큼 margin-left 이동하되,
-//margin-left 값이 li의 너비 *  li.length 의 값 보다 같거나 작아지면 버튼 사라져라->length값이 감소돼서 맘대로 안되넹?
-//그렇다면 바뀌지 않는 length값이 필요해 확장성을 고려해서~~~~
-//기존의 length값을 저장 하는 변수 만들어
-
-//클릭할때마다 1씩 증가되고 length값 이상이 되면 멈춰!
-
 const rightBtn = document.querySelector(".arrow_right"),
-  slideUl = document.querySelector(".main_banner2_wrap ul"),
-  slideLi = document.querySelectorAll(".main_banner2_wrap ul li"),
-  itemWidth = slideLi[0].offsetWidth;
+  slideUl = document.querySelector(".main_banner2_wrap ul");
+let slideLi = document.querySelectorAll(".main_banner2_wrap ul li");
+const itemWidth = slideLi[0].offsetWidth;
 let marginValue = 0;
 
-const slideNum = document.querySelector(".slide_num");
 let slideLiLength = 1;
 const copyLiLength = slideLi.length;
 
@@ -154,39 +144,77 @@ function moveSlide2() {
 
 leftBtn.addEventListener("click", moveSlide2);
 
-//page가 load되면 무한으로 돌아가는 slide
-function autoSlide() {
-  // marginValue
+//6-2. page가 load되면 무한으로 돌아가는 slide
+
+//margin-left로 이동하는 함수
+function moveMarginLeft() {
+  slideLi = document.querySelectorAll(".main_banner2_wrap ul li");
+  marginValue = -itemWidth;
+  slideUl.style.marginLeft = `${marginValue}px`;
+  slideUl.style["transition"] = "0.3s";
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  autoSlide();
-});
+//reset하는 함수 setTimeout
+function resetMargin() {
+  setTimeout(() => {
+    slideUl.style.marginLeft = 0; //초기화
+    slideUl.style["transition"] = "0s";
+    let cloneItem = slideLi[0].cloneNode(true);
+    slideUl.appendChild(cloneItem);
+    slideUl.removeChild(slideLi[0]);
+  }, 300);
+}
 
-//하트 클릭하면 색깔 변하게, ************로컬 스토리지에  p문구 들어가게(배열로)
+function autoslide() {
+  moveMarginLeft();
+
+  resetMargin();
+
+  setTimeout(() => {
+    autoslide();
+  }, 2000);
+}
+
+setTimeout(() => {
+  autoslide();
+}, 2000);
+
+//7. 하트 누른 게시글 localstorage에 paragraph 저장하기
+//*********** 미완 하트 카운트가 제대로 안됨
 const userHart = document.querySelectorAll(".fa-heart");
-// let postName = document.querySelectorAll(".");
+let stringArr = [];
+let post = document.querySelectorAll(".section1_box");
 
-userHart.forEach((a) => {
+userHart.forEach((a, i) => {
   let count = 0;
-
   a.addEventListener("click", function (e) {
-    //색깔 바뀌는 이벤트 끝
-    count++;
     if (e.target == a) {
-      this.style.color = "#00bbff";
+      count++;
+      if (a.classList.contains("color2")) {
+        a.classList.remove("color2");
+      } else {
+        a.classList.add("color2");
+      }
+      if (count % 2 !== 0) {
+        // this.style.color = "#00bbff";
+        // a.classList.add("color2");
+        let postTitle = post[i].querySelector("p").innerText;
+        if (!stringArr.includes(postTitle)) {
+          stringArr.push(postTitle);
+        } else {
+          a.classList.remove("color2");
+          this.style.color = "#fff";
+          let postTitle = post[i].querySelector("p").innerText;
+          stringArr = stringArr.filter((text) => text !== postTitle);
+        }
+        let newStringArr = JSON.stringify(stringArr);
+        localStorage.setItem("post", newStringArr);
+      }
     }
-    if (count % 2 == 0) {
-      this.style.color = "#fff";
-    }
-
-    //로컬 스토리지에 게시물 이름 저장
-    // localStorage.setItem
   });
 });
 
-//카테고리 버튼 이벤트
-
+//8. 메뉴 슬라이더
 window.addEventListener("DOMContentLoaded", () => {
   const cateArrowRt = document.querySelector(".cate_arrow_right"),
     cateArrowLt = document.querySelector(".cate_arrow_left"),
@@ -209,7 +237,7 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-//json
+//9.json에서 상품 가져오기
 let btnCount = 0;
 fetch("./product.json")
   .then((res) => res.json())
@@ -257,51 +285,53 @@ fetch("./product.json")
       }
     });
 
-    //json으로 가져온 자료로 오름차순 내림차순 으로 정렬 sort 조건대로 정렬하는 문법
-    //1.가져온 data 의 복사본을 만듦 2.price keyword로 가격 정렬함
-    // const stringSlec = document.querySelector(".string_selec");
-    // let copyDate = data;
-    // stringSlec.addEventListener("change", () => {
-    //   if (stringSlec.value == "오름차순") {
-    //     console.log(
-    //       copyDate.sort((a, b) => {
-    //         return parseInt(a.price) - parseInt(b.price);
-    //       })
-    //     );
-    //   }
-    // });
-
+    //10.json 자료 sort로 가격순 정렬
     const priceSelec = document.querySelector(".price_selec");
-    let copyData = [...data];
+    let copyPrice = [...data];
 
     priceSelec.addEventListener("change", () => {
       if (priceSelec.value == "높은 가격순") {
-        console.log(
-          copyData.sort((a, b) => {
-            return parseInt(a.price) - parseInt(b.price);
-          })
-        );
+        copyPrice.sort(function (a, b) {
+          const priceA = parseInt(a.price.replace(/,/g, ""));
+          const priceB = parseInt(b.price.replace(/,/g, ""));
+          return priceB - priceA;
+          //innerHTML 비운 다음에 정렬한 값 넣기
+        });
+        copyPrice.forEach(function (item) {
+          dealInner.innerHTML = "";
+          dealInner.appendChild(priceSelec);
+        });
       } else if (priceSelec.value == "낮은 가격순") {
-        console.log(
-          copyData.sort((a, b) => {
-            return parseInt(b.price) - parseInt(a.price);
-          })
-        );
+        console.log("저려미");
       }
     });
   })
   .catch((error) => console.log("실패함:", error));
 
-//top버튼
+//11.top버튼
+const topBtn = document.querySelector(".top-btn");
+const documentEle = document.documentElement;
 
-const topBtn = document.querySelector(".top-btn"),
-  documentEle = document.documentElement,
-  documentHeight = documentEle.offsetHeight;
-let scrollPos = 0;
-console.log(topBtn, documentEle, documentHeight);
+window.addEventListener("scroll", () => {
+  if (window.scrollY > documentEle.clientHeight) {
+    topBtn.classList.remove("opacity");
+  } else {
+    topBtn.classList.add("opacity");
+  }
+});
 
-function scrollUp() {}
+let scrollInterval;
+
+function scrollToTop() {
+  if (window.scrollY !== 0) {
+    window.scrollTo(0, window.scrollY - 55); //현재 scrollY의 값에서 -55씩 올라감
+  } else {
+    clearInterval(scrollInterval);
+  }
+}
 
 topBtn.addEventListener("click", () => {
-  scrollUp();
+  if (window.scrollY !== 0) {
+    scrollInterval = setInterval(scrollToTop, 10);
+  }
 });

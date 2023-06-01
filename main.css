@@ -389,6 +389,10 @@ body {
   transform: scale(1.03);
 }
 
+.fa-heart.color2 {
+  color: #00bbff !important;
+}
+
 .main_banner2_wrap ul {
   display: flex;
   width: 1758.33px;
@@ -793,4 +797,5 @@ footer {
   bottom: 3em;
   right: 3em;
   background-color: #ffffff;
+  transition: 0.3s;
 }
