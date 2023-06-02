@@ -13,6 +13,7 @@
     />
     <link rel="stylesheet" href="nomalize.css" />
     <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="responsive.css">
     <link rel="icon" type="image/png" href="img/favicon.oh.png">
 
     <script defer src="main.js"></script>
@@ -434,6 +435,7 @@
    <div class="today_deal_wrap">
 
     <div class="deal_btn_wrap1 container mt">
+      <button class="deal_btn cr more_btn">상품 더 보기</button>
       <select class="price_selec deal_btn cr">
         <option value="none1">가격순 정렬</option>
         <option value="높은 가격순" class="price_high">높은 가격순</option>
@@ -444,7 +446,7 @@
         <option value="오름차순">오름차순</option>
         <option value="내림차순">내림차순</option>
       </select>
-      <button class="deal_btn cr">상품 더 보기</button>
+      
     </div>
 
     <h3 class="container mt">오늘의 딜💫</h3>
@@ -571,33 +573,5 @@
 
     <div class="top-btn cr opacity">top</div>
 
-    <script
-      src="https://code.jquery.com/jquery-3.6.4.min.js"
-      integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
-      crossorigin="anonymous"
-    ></script>
-    <script>
-      // Zoom
-      function resizeApply() {
-        var minWidth = 1920;
-        var body = document.getElementsByTagName("body")[0];
-        if (window.innerWidth < minWidth) {
-          body.style.zoom = window.innerWidth / minWidth;
-        } else {
-          body.style.zoom = 1;
-        }
-      }
-      window.onload = function () {
-        window.addEventListener("resize", function () {
-          resizeApply();
-        });
-      };
-
-      $(document).ready(function () {
-        //설정 해상도보다 낮을 때 축소
-        resizeApply();
-      });
-    
-    </script>
   </body>
 </html>

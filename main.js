@@ -84,7 +84,6 @@ lankWrap.addEventListener("mouseout", function (e) {
 });
 
 //6.이미지 슬라이드
-
 let banner2Wrap = document.querySelector(".main_banner2_wrap"),
   arrowWrap = document.querySelector(".arrow_wrap");
 banner2Wrap.addEventListener("mouseover", function () {
@@ -105,23 +104,16 @@ let marginValue = 0;
 
 let slideLiLength = 1;
 const copyLiLength = slideLi.length;
-
-function btnEvent() {
-  if (marginValue <= -(itemWidth * (copyLiLength - 1))) {
-    rightBtn.classList.add("opacity");
-  } else {
-    rightBtn.classList.remove("opacity");
-  }
-}
+const slideUlWidth = -slideUl.offsetWidth;
+currentImg = 1;
 
 function moveSlide() {
-  marginValue -= itemWidth;
-  slideUl.style.marginLeft = `${marginValue}px`;
-
-  slideLiLength++;
-
-  slideNum.innerHTML = `${slideLiLength}/7  +`;
-  btnEvent();
+  if (marginValue >= -1255) {
+    marginValue -= itemWidth;
+    slideUl.style.marginLeft = `${marginValue}px`;
+  } else {
+    return;
+  }
 }
 
 rightBtn.addEventListener("click", moveSlide);
@@ -135,9 +127,6 @@ function moveSlide2() {
 
   marginValue += itemWidth;
   slideUl.style.marginLeft = `${marginValue}px`;
-
-  slideLiLength--;
-  slideNum.innerHTML = `${slideLiLength}/7  +`;
 
   btnEvent();
 }
@@ -180,36 +169,31 @@ setTimeout(() => {
 }, 2000);
 
 //7. 하트 누른 게시글 localstorage에 paragraph 저장하기
-//*********** 미완 하트 카운트가 제대로 안됨
 const userHart = document.querySelectorAll(".fa-heart");
 let stringArr = [];
 let post = document.querySelectorAll(".section1_box");
 
 userHart.forEach((a, i) => {
-  let count = 0;
+  let heartTogg = false;
+
   a.addEventListener("click", function (e) {
     if (e.target == a) {
-      count++;
-      if (a.classList.contains("color2")) {
-        a.classList.remove("color2");
-      } else {
-        a.classList.add("color2");
-      }
-      if (count % 2 !== 0) {
-        // this.style.color = "#00bbff";
-        // a.classList.add("color2");
+      heartTogg = !heartTogg;
+      if (heartTogg) {
+        a.style.color = "#00bbff";
+
         let postTitle = post[i].querySelector("p").innerText;
         if (!stringArr.includes(postTitle)) {
           stringArr.push(postTitle);
-        } else {
-          a.classList.remove("color2");
-          this.style.color = "#fff";
-          let postTitle = post[i].querySelector("p").innerText;
-          stringArr = stringArr.filter((text) => text !== postTitle);
         }
-        let newStringArr = JSON.stringify(stringArr);
-        localStorage.setItem("post", newStringArr);
       }
+      if (!heartTogg) {
+        a.style.color = "#fff";
+        let postTitle = post[i].querySelector("p").innerText;
+        stringArr = stringArr.filter((text) => text !== postTitle);
+      }
+      let newStringArr = JSON.stringify(stringArr);
+      localStorage.setItem("post", newStringArr);
     }
   });
 });
@@ -242,7 +226,7 @@ let btnCount = 0;
 fetch("./product.json")
   .then((res) => res.json())
   .then((data) => {
-    const moreBtn = document.querySelector(".deal_btn:last-child");
+    const moreBtn = document.querySelector(".more_btn");
     const dealInner = document.querySelector(".today_deal_inner");
 
     function createDealItem(item) {
@@ -295,20 +279,122 @@ fetch("./product.json")
           const priceA = parseInt(a.price.replace(/,/g, ""));
           const priceB = parseInt(b.price.replace(/,/g, ""));
           return priceB - priceA;
-          //innerHTML 비운 다음에 정렬한 값 넣기
         });
+        dealInner.innerHTML = "";
+
         copyPrice.forEach(function (item) {
-          dealInner.innerHTML = "";
-          dealInner.appendChild(priceSelec);
+          console.log(item);
+
+          //함수로 만들어서 쓰면 좋을 것 같은데 오류 뜸
+          let sortTemplete = `
+          <div class="today_deal_item cr">
+          <div class="img_wrap relative">
+            <img src="${item.img}" alt="">
+            <div class="today_timer">00:00:00 남음</div>
+          </div>
+          <small>${item.brand}</small>
+          <p>${item.paragraph}</p>
+          <b><span>7%</span>${item.price}</b>
+          <div class="deal_btn_wrap2">
+            <button class="cr">무료배송</button>
+            <button class="cr">특가</button>
+          </div>
+        </div>
+          `;
+
+          dealInner.insertAdjacentHTML("beforeend", sortTemplete);
         });
       } else if (priceSelec.value == "낮은 가격순") {
-        console.log("저려미");
+        copyPrice.sort(function (a, b) {
+          const priceA = parseInt(a.price.replace(/,/g, ""));
+          const priceB = parseInt(b.price.replace(/,/g, ""));
+          return priceA - priceB;
+        });
+        dealInner.innerHTML = "";
+
+        copyPrice.forEach(function (item) {
+          let sortTemplete = `
+          <div class="today_deal_item cr">
+          <div class="img_wrap relative">
+            <img src="${item.img}" alt="">
+            <div class="today_timer">00:00:00 남음</div>
+          </div>
+          <small>${item.brand}</small>
+          <p>${item.paragraph}</p>
+          <b><span>7%</span>${item.price}</b>
+          <div class="deal_btn_wrap2">
+            <button class="cr">무료배송</button>
+            <button class="cr">특가</button>
+          </div>
+        </div>
+          `;
+          dealInner.insertAdjacentHTML("beforeend", sortTemplete);
+        });
+      }
+    });
+
+    const stringSelec = document.querySelector(".string_selec");
+
+    stringSelec.addEventListener("change", () => {
+      if (stringSelec.value == "오름차순") {
+        copyPrice.sort(function (a, b) {
+          a.brand - b.brand;
+          return a.brand.localeCompare(b.brand);
+        });
+
+        dealInner.innerHTML = "";
+
+        copyPrice.forEach(function (item) {
+          let sortTemplete = `
+          <div class="today_deal_item cr">
+          <div class="img_wrap relative">
+            <img src="${item.img}" alt="">
+            <div class="today_timer">00:00:00 남음</div>
+          </div>
+          <small>${item.brand}</small>
+          <p>${item.paragraph}</p>
+          <b><span>7%</span>${item.price}</b>
+          <div class="deal_btn_wrap2">
+            <button class="cr">무료배송</button>
+            <button class="cr">특가</button>
+          </div>
+        </div>
+          `;
+          dealInner.insertAdjacentHTML("beforeend", sortTemplete);
+        });
+      } else if (stringSelec.value == "내림차순") {
+        copyPrice.sort(function (a, b) {
+          a.brand - b.brand;
+          return b.brand.localeCompare(a.brand);
+        });
+        dealInner.innerHTML = "";
+        copyPrice.forEach(function (item) {
+          let sortTemplete = `
+          <div class="today_deal_item cr">
+          <div class="img_wrap relative">
+            <img src="${item.img}" alt="">
+            <div class="today_timer">00:00:00 남음</div>
+          </div>
+          <small>${item.brand}</small>
+          <p>${item.paragraph}</p>
+          <b><span>7%</span>${item.price}</b>
+          <div class="deal_btn_wrap2">
+            <button class="cr">무료배송</button>
+            <button class="cr">특가</button>
+          </div>
+        </div>
+          `;
+          dealInner.insertAdjacentHTML("beforeend", sortTemplete);
+        });
       }
     });
   })
   .catch((error) => console.log("실패함:", error));
 
-//11.top버튼
+//11. date 객체의 instance 만들어서 24시간 카운트 하기
+//하려고 하였으나......................  미완
+
+//12.top버튼
 const topBtn = document.querySelector(".top-btn");
 const documentEle = document.documentElement;
 

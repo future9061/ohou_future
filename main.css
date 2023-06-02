@@ -587,6 +587,10 @@ body {
   display: block;
 }
 
+.string_selec {
+  text-align: center;
+}
+
 .today_deal_inner {
   display: flex;
   flex-wrap: wrap;
