@@ -219,10 +219,6 @@ body {
   right: 0;
 }
 
-/* .show_list_inner ul {
-  transition: 0.5s;
-} */
-
 .show_list_inner li {
   height: 30px;
   text-align: start;
@@ -519,7 +515,6 @@ body {
   display: flex;
   gap: 20px;
   width: 1564px;
-
   padding-right: 30px;
   transition: 0.5s;
 }
@@ -540,11 +535,7 @@ body {
   height: 100%;
   right: 0;
   background: rgb(255, 253, 253);
-  background: linear-gradient(
-    100deg,
-    rgba(255, 253, 253, 0) 0%,
-    rgba(255, 255, 255, 0.9976365546218487) 65%
-  );
+  background: linear-gradient(100deg, rgba(255, 253, 253, 0) 0%, rgba(255, 255, 255, 0.9976365546218487) 65%);
 }
 
 .cate_arrow_right {
