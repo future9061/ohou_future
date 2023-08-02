@@ -31,16 +31,19 @@
 
 ## ✍ 주요 기능 소개
 
-- ### sub menu event - [코드 보기](#sub-menu)
+- ### sub menu event 
+
 
   main menu에 마우스 올릴 시 sub menu 변경
   <br />
   <img src="https://github.com/future9061/ohou_future/assets/132829711/69b4842f-26cd-4929-9744-e3d012ffdc0a" width="50%">
+  
+### [코드 보러 가기](#sub-menu)
 
-    <br />
-    <br />
+<br />
+<br />
 
-- ### 무한 루프 인기 순위 - [코드 보기](#인기-순위)
+- #### 무한 루프 인기 순위 - [코드 보기](#인기-순위)
   <br />
   <img src="https://github.com/future9061/ohou_future/assets/132829711/541b7a41-fec4-497d-9ea4-58f0b7b6747f" width="50%">
 
