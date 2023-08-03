@@ -783,6 +783,10 @@ footer {
   align-items: start;
 }
 
+.foot-align p {
+  margin: 0;
+}
+
 .foot-align:first-child {
   white-space: nowrap;
   margin-right: 20px;
