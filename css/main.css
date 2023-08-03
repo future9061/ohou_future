@@ -19,7 +19,8 @@ body {
 .mt {
   margin-top: 30px;
 }
-/*맨 위에 배너 ( close 클릭하면 사라지는)*/
+
+
 .banner1 {
   width: 100%;
   height: 50px;
@@ -386,7 +387,7 @@ body {
 
 .arrow_left {
   top: calc(50% - 25px);
-  right: calc(257px - 50px);
+  right: calc(300px - 50px);
 }
 
 .main_banner2_wrap {
@@ -408,7 +409,7 @@ body {
 
 .main_banner2_wrap ul {
   display: flex;
-  width: 1900px;
+  width: 2100px;
   height: 600px;
   transition: 0.3s;
 }
