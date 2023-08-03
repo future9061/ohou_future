@@ -1,0 +1,129 @@
+[
+  {
+    "id": 1,
+    "img": "https://image.ohou.se/i/bucketplace-v2-development/uploads/deals/167599418354505272.jpeg?gif=1&w=480&h=480&c=c",
+    "brand": "미닉스",
+    "paragraph": "[오늘의딜][인기상품] 미닉스 미니건조기 / 식세기 / 빔프로젝터 모음전",
+    "price": "319,000원"
+  },
+
+  {
+    "id": 2,
+    "img": "https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/167713543641723903.jpg?gif=1&w=480&h=480&c=c&webp=1",
+    "brand": "에스테반호프",
+    "paragraph": "[단하루특가][1+1]우드상판포함 폴딩박스 28L/54L 크림/블랙",
+    "price": "18,900원"
+  },
+
+  {
+    "id": 3,
+    "img": "https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168249255960016870.jpg?gif=1&w=480&h=480&c=c&webp=1",
+    "brand": "디얼리빙",
+    "paragraph": "[선착순8,900원][오늘의딜] 돌돌이 테이프클리너 10종세트(본체+거치대+긴봉+리필7개)",
+    "price": "11,900원"
+  },
+
+  {
+    "id": 4,
+    "img": "https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/1511415909987_7Buzxp1rr.jpg?gif=1&w=480&h=480&c=c&webp=1",
+    "brand": "굿픽스",
+    "paragraph": "[주말특가] 다용도 자석 수납함 우산꽂이 3colors",
+    "price": "11,800원"
+  },
+
+  {
+    "id": 5,
+    "img": "https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/168491220847683418.jpg?gif=1&w=480&h=480&c=c",
+    "brand": "스타일링홈",
+    "paragraph": "[단하루!추가인하+쿠폰] 간절기/여름 사각사각 시원한 호텔느낌 60수 먼지없는 차렵이불세트",
+    "price": "59,900원"
+  },
+
+  {
+    "id": 6,
+    "img": "https://image.ohou.se/i/bucketplace-v2-development/uploads/deals/168490484615162577.png?gif=1&w=480&h=480&c=c&webp=1",
+    "brand": "피에고",
+    "paragraph": "[원터치 유모차 17만원대] 휴대용 유모차/메쉬 아기띠/유모차 라이너/용품 外 특가전",
+    "price": "55,000원"
+  },
+
+  {
+    "id": 7,
+    "img": "https://image.ohou.se/i/bucketplace-v2-development/uploads/deals/168424622163328607.jpg?gif=1&w=480&h=480&c=c&webp=1",
+    "brand": "JAJU(자주)",
+    "paragraph": "[오늘의딜/10%쿠폰] JAJU 브랜드위크! 남녀 이지웨어 홈웨어 파자마 모음전",
+    "price": "23,000원"
+  },
+
+  {
+    "id": 8,
+    "img": "https://image.ohou.se/i/bucketplace-v2-development/uploads/deals/163281581553036977.jpg?gif=1&w=480&h=480&c=c&webp=1",
+    "brand": "안셀",
+    "paragraph": "[10+2개 최총가 8900원 역대가!] 순면안감 천연라텍스 안셀 고무장갑",
+    "price": "5,900원"
+  },
+
+  {
+    "id": 9,
+    "img": "https://image.ohou.se/i/bucketplace-v2-development/uploads/deals/165896986654425717.jpg?gif=1&w=480&h=480&c=c&webp=1",
+    "brand": "프로쉬",
+    "paragraph": "[10%+5%쿠폰] 독일친환경 올인원 식기세척기세제 30개입 4개+바스켓+추가증정",
+    "price": "42,900원"
+  },
+
+  {
+    "id": 10,
+    "img": "https://image.ohou.se/i/bucketplace-v2-development/uploads/deals/168388314748395714.jpg?gif=1&w=480&h=480&c=c&webp=1",
+    "brand": "애슐리 홈스토랑",
+    "paragraph": "[쿠폰] 스프 한정수량 990원 특가!통살치킨/토마호크/파스타 외",
+    "price": "990원"
+  },
+
+  {
+    "id": 11,
+    "img": "https://image.ohou.se/i/bucketplace-v2-development/uploads/deals/168385988962653420.jpg?gif=1&w=480&h=480&c=c&webp=1",
+    "brand": "베베숲",
+    "paragraph": "베베숲 시그니처 블루 10팩/20팩 모음전",
+    "price": "17,990원"
+  },
+
+  {
+    "id": 12,
+    "img": "https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/157077762037490681.jpg?gif=1&w=480&h=480&c=c&webp=1",
+    "brand": "스타우브",
+    "paragraph": "[오늘의딜]스타우브 한정수량 베이비웍 입고 (+꼬꼬떼, 아시아볼 등 베스트셀러 특가)",
+    "price": "105,000원"
+  },
+
+  {
+    "id": 13,
+    "img": "https://image.ohou.se/i/bucketplace-v2-development/uploads/deals/168489256851293677.jpg?gif=1&w=480&h=480&c=c&webp=1",
+    "brand": "시몬스",
+    "paragraph": "[32%쿠폰]BEST 호텔형 뷰티레스트 & D2178 침대매트리스 특가 모음전",
+    "price": "1,200,000원"
+  },
+
+  {
+    "id": 14,
+    "img": "https://image.ohou.se/i/bucketplace-v2-development/uploads/productions/162547178800320763.jpg?gif=1&w=480&h=480&c=c",
+    "brand": "어라운드(A;ROUND)",
+    "paragraph": "[오늘의딜] 누구나 사용할 수 있는 선풍기 에어러블 AR-A14",
+    "price": "25,900원"
+  },
+
+  {
+    "id": 15,
+    "img": "https://image.ohou.se/i/bucketplace-v2-development/uploads/openapi/17773196/1662005107283.jpg?gif=1&w=480&h=480&c=c&webp=1",
+    "brand": "플레노",
+    "paragraph": "[오늘의딜] 압축봉 길이조절 무타공 못없이 커튼봉",
+    "price": "4,800원"
+  },
+
+  {
+    "id": 16,
+    "img": "https://image.ohou.se/i/bucketplace-v2-development/uploads/deals/168480539558938422.jpg?gif=1&w=480&h=480&c=c&webp=1",
+    "brand": "룸앤홈",
+    "paragraph": "[오늘의딜][15%쿠폰] 감성가구BEST 수납장/선반/거실테이블 특가전",
+    "price": "21,900원"
+  }
+]
