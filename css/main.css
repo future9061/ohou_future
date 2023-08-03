@@ -305,7 +305,7 @@ body {
   justify-content: space-between;
   overflow: hidden;
   position: relative;
-  gap: 30px;
+  gap: 20px;
 }
 
 .main_banner1:hover img {
@@ -314,7 +314,7 @@ body {
 }
 
 .main_banner1 {
-  width: 1200px;
+  width: 80%;
   height: 600px;
   position: relative;
   overflow: hidden;
@@ -390,7 +390,7 @@ body {
 }
 
 .main_banner2_wrap {
-  width: 257px;
+  width: 20%;
   height: 600px;
   position: relative;
   overflow: hidden;
@@ -408,7 +408,7 @@ body {
 
 .main_banner2_wrap ul {
   display: flex;
-  width: 1800px;
+  width: 1900px;
   height: 600px;
   transition: 0.3s;
 }
