@@ -17,12 +17,11 @@
 <div align="center">
   
    <img src="https://github.com/future9061/ohou_future/assets/132829711/763b526a-74b1-40a1-9740-72d196808230" width="50%">
-
-//url 넣기
+   https://future9061.github.io/ohou_future
 
    <p align="start">
      오늘의 집을 클론 코딩한 프로젝트 입니다. vanilla javascript로 슬라이드 및 인기순위 애니메이션, json 데이터를 가져와 필터, 정렬 등을 해보았습니다.<br />
-    반응형 아직 안함
+      breakepoint는 1024px 480px 입니다.
       
    </p>
 </div>
