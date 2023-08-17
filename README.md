@@ -1,14 +1,15 @@
 # 🎇목차
 
 1. [💻프로젝트 소개](#-프로젝트-소개)
-2. [✍ 주요 기능 소개](#-주요-기능-소개)
+2. [📦 개발 환경](#-개발-환경)
+3. [✍ 주요 기능 소개](#-주요-기능-소개)
    - [sub menu event](#✔-sub-menu-event)
    - [무한 루프 인기 순위](#✔-무한-루프-인기-순위)
    - [무한 루프 이미지 슬라이드](#✔-무한-루프-이미지-슬라이드)
    - [상품 선택 기능](#✔-상품-선택-기능)
    - [Json data 가져와서 정렬](#✔-json-data-가져와서-정렬)
    - [scroll Top btn](#✔-scroll-top-btn)
-3. [🧾 code review](#-code-review)
+4. [🧾 code review](#-code-review)
 
    <br />
 
@@ -28,6 +29,13 @@
 </div>
 
 <br />
+
+## 📦 개발 환경
+
+- **editor** : <img src="https://img.shields.io/badge/VisualStudioCode-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white"/>
+- **language** : <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=HTML5&logoColor=white"/> <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=CSS3&logoColor=white"/> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=flat-square&logo=javascript&logoColor=white"/>
+  <br />
+
 
 ## ✍ 주요 기능 소개
 
